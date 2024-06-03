@@ -21,28 +21,28 @@ def get_data():
             relation_matrix: list = relationship_matrix(A,B,product,relation)
             domain: set = list(get_domain(product))
             range_set: set = list(get_range(product))
-            property = ""
+            property = relation_properties(A,B,relation)
         case 2:
             product: list = multiply_sets(B,A)
             relation: list = relationship(B,A,equation)
             relation_matrix: list = relationship_matrix(B,A,product,relation)
             domain: set = list(get_domain(product))
             range_set: set = list(get_range(product))
-            property = ""
+            property = relation_properties(B,A,relation)
         case 3:
             product: list = multiply_sets(A,A)
             relation: list = relationship(A,A,equation)
             relation_matrix: list = relationship_matrix(A,A,product,relation)
             domain: set = list(get_domain(product))
             range_set: set = list(get_range(product))
-            property = relation_properties(A,A)
+            property = relation_properties(A,A,relation)
         case 4:
             product: list = multiply_sets(B,B)
             relation: list = relationship(B,B,equation)
             relation_matrix: list = relationship_matrix(B,B,product,relation)
             domain: set = list(get_domain(product))
             range_set: set = list(get_range(product))
-            property = relation_properties(B,A)
+            property = relation_properties(B,A,relation)
     final_message = {"product": product,"relation": relation,"matrix": relation_matrix,"domain": domain,"range": range_set, "property": property}
 
     return jsonify(final_message), 200

@@ -72,11 +72,11 @@ def get_range(C: list) -> set:
     range = {pair[1] for pair in C}
     return range
 
-def relation_properties(A: list, B: list) -> str:
+def relation_properties(A: list, B: list, C: list) -> str:
     message = []
     message.append(reflexive_property(A,B))
     message.append(symmetric_property(A,B))
-    message.append(transitive_property(A,B))
+    message.append(transitive_property(C))
     message = " | ".join(message)
     return message
 
@@ -134,12 +134,10 @@ def symmetric_property(A: list, B: list) -> str:
     message2 = "Antisimétrica" if anti_symmetric else ""
     return message + " " + message2
 
-def transitive_property(A: list, B: list) -> str:
-    message = "Transitiva"
-    for i in range(len(A)):
-        for j in range(len(A)):
-            for k in range(len(A)):
-                if [A[j], A[k]] in B and [A[j], A[j]] in B:
-                    if [A[i], A[k]] not in B:
-                        return "No transitiva"
-    return message
+def transitive_property(C: list) -> str:
+    for x in C:
+        for y in C:
+            if x[1] == y[0]:
+                if [x[0], y[1]] not in C:
+                    return 'No transitiva'
+    return 'Transitiva'
