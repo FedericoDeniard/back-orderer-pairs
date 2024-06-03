@@ -72,10 +72,10 @@ def get_range(C: list) -> set:
     range = {pair[1] for pair in C}
     return range
 
-def relation_properties(A: list, B: list, C: list) -> str:
+def relation_properties(A: list, C: list) -> str:
     message = []
-    message.append(reflexive_property(A,B))
-    message.append(symmetric_property(A,B))
+    message.append(reflexive_property(A,C))
+    message.append(symmetric_property(A,C))
     message.append(transitive_property(C))
     message = " | ".join(message)
     return message
