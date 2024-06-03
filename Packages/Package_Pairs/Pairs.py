@@ -36,19 +36,15 @@ def relationship_matrix(A: list, B:list, AxB: list, C: list) -> list:
     column = 0
     j = 0
 
-    loop = True
-    while loop:
-        for i in range(len(AxB)):
-            if column == len(B):
-                column = 0
-                row += 1
-            if AxB[i] == C[j]:
-                D[row][column] = 1
-                j += 1
-            column +=1
-            if j == len(C) or i == len(AxB):
-                loop = False
-                break
+    for pair in AxB:
+        if column == len(B):
+            column = 0
+            row += 1
+        if j < len(C) and pair == C[j]:
+            D[row][column] = 1
+            j += 1
+        column += 1
+
     return D
 
 def show_array(array: list):
