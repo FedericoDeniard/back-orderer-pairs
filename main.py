@@ -21,14 +21,14 @@ def get_data():
             relation_matrix: list = relationship_matrix(A,B,product,relation)
             domain: set = list(get_domain(product))
             range_set: set = list(get_range(product))
-            property = relation_properties(A,relation)
+            property = ""
         case 2:
             product: list = multiply_sets(B,A)
             relation: list = relationship(B,A,equation)
             relation_matrix: list = relationship_matrix(B,A,product,relation)
             domain: set = list(get_domain(product))
             range_set: set = list(get_range(product))
-            property = relation_properties(B,relation)
+            property = ""
         case 3:
             product: list = multiply_sets(A,A)
             relation: list = relationship(A,A,equation)

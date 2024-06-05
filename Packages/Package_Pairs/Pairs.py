@@ -76,6 +76,7 @@ def relation_properties(A: list, C: list) -> str:
     message = []
     message.append(reflexive_property(A,C))
     message.append(symmetric_property(C))
+    message.append(symmetric_property(C))
     message.append(transitive_property(C))
     message = " | ".join(message)
     return message
@@ -115,6 +116,7 @@ def symmetric_property(C: list) -> str:
     elif has_symmetric:
         return "Asimétrica"
     else:
+        return "No simétrica"
         return "No simétrica"
 
 def transitive_property(C: list) -> str:
