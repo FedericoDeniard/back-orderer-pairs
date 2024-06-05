@@ -36,6 +36,7 @@ def get_data():
             domain: set = list(get_domain(product))
             range_set: set = list(get_range(product))
             property = relation_properties(A,relation)
+            clasify = relationship_clasify(property,A,relation)
         case 4:
             product: list = multiply_sets(B,B)
             relation: list = relationship(B,B,equation)
@@ -43,7 +44,8 @@ def get_data():
             domain: set = list(get_domain(product))
             range_set: set = list(get_range(product))
             property = relation_properties(B,relation)
-    final_message = {"product": product,"relation": relation,"matrix": relation_matrix,"domain": domain,"range": range_set, "property": property}
+            clasify = relationship_clasify(property,B,relation)
+    final_message = {"product": product,"relation": relation,"matrix": relation_matrix,"domain": domain,"range": range_set, "property": property,"clasify": clasify}
 
     return jsonify(final_message), 200
 
