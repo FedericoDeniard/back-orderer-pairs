@@ -22,6 +22,7 @@ def get_data():
             domain: set = list(get_domain(product))
             range_set: set = list(get_range(product))
             property = ""
+            clasify = ""
         case 2:
             product: list = multiply_sets(B,A)
             relation: list = relationship(B,A,equation)
@@ -29,6 +30,7 @@ def get_data():
             domain: set = list(get_domain(product))
             range_set: set = list(get_range(product))
             property = ""
+            clasify = ""
         case 3:
             product: list = multiply_sets(A,A)
             relation: list = relationship(A,A,equation)
