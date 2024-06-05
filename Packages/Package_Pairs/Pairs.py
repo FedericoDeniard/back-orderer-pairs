@@ -117,7 +117,6 @@ def symmetric_property(C: list) -> str:
         return "Asimétrica"
     else:
         return "No simétrica"
-        return "No simétrica"
 
 def transitive_property(C: list) -> str:
     has_transitive = False
