@@ -75,7 +75,7 @@ def get_range(C: list) -> set:
 def relation_properties(A: list, C: list) -> str:
     message = []
     message.append(reflexive_property(A,C))
-    message.append(symmetric_property(A,C))
+    message.append(symmetric_property(C))
     message.append(transitive_property(C))
     message = " | ".join(message)
     return message
@@ -95,44 +95,22 @@ def reflexive_property(A: list,B: list) -> str:
         message = "Areflexiva"
     return message
 
-def symmetric_property(A: list, B: list) -> str:
-    simetrics = []
-    message = "x"
-    for i in range(len(A)):
-        for j in range(len(A)):
-            if [A[i],A[j]] in B and [A[j],A[i]] in B:
-                simetrics.append([A[i],A[j]])
-
-    all_symmetric = True
-    for a in A:
-        has_symmetric = False
-        for b in A:
-            if [a,b] in B and [b,a] in B:
-                has_symmetric = True
-                break
-        if not has_symmetric:
-            all_symmetric = False
-            break
+def symmetric_property(C: list) -> str:
+    is_symmetric = True
+    is_antisymmetric = True
     
-    anti_symmetric = True
-
-    for a in A:
-        for b in A:
-            if b != a and [b,a] in B and [a,b] in B:
-                anti_symmetric = False
-                break
-        if not anti_symmetric:
-            break        
-
-    if all_symmetric:
-        message = "Simétrica"
-    elif len(simetrics) > 0:
-        message = "No simétrica"
+    for a, b in C:
+        if [b, a] not in C:
+            is_symmetric = False
+        if a != b and [b, a] in C:
+            is_antisymmetric = False
+    
+    if is_symmetric:
+        return "Simétrica."
+    elif is_antisymmetric:
+        return "Antisimétrica."
     else:
-        message = "Asimétrica"
-
-    message2 = "Antisimétrica" if anti_symmetric else ""
-    return message + " " + message2
+        return "No simétrica"
 
 def transitive_property(C: list) -> str:
     for x in C:
