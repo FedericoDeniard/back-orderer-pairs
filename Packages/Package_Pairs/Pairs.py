@@ -76,7 +76,6 @@ def relation_properties(A: list, C: list) -> str:
     message = []
     message.append(reflexive_property(A,C))
     message.append(symmetric_property(C))
-    message.append(symmetric_property(C))
     message.append(transitive_property(C))
     message = " | ".join(message)
     return message
