@@ -108,15 +108,17 @@ def symmetric_property(C: list) -> str:
             has_symmetric = True
         if a != b and [b, a] in C:
             is_antisymmetric = False
-    
+    message = []
     if is_symmetric:
-        return "Simétrica"
-    elif is_antisymmetric:
-        return "Antisimétrica"
+        message.append("Simétrica")
     elif has_symmetric:
-        return "Asimétrica"
+        message.append("No simétrica")
     else:
-        return "No simétrica"
+        message.append("Asimétrica")
+    if is_antisymmetric:
+        message.append("Antisimétrica")
+    message = " | ".join(message)
+    return message
 
 def transitive_property(C: list) -> str:
     has_transitive = False
