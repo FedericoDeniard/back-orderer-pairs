@@ -92,7 +92,7 @@ def reflexive_property(A: list,B: list) -> str:
     elif len(reflexives) > 0:
         message = "No reflexiva"
     else:
-        message = "Areflexiva"
+        message = "Arreflexiva"
     return message
 
 def symmetric_property(C: list) -> str:
